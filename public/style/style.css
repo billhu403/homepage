@@ -547,6 +547,7 @@ body {
     gap: 3px;
     padding: 0;
     margin: 0;
+    justify-items: start;
   }
 
   .mobile-skills .skill-icons li {
