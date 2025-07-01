@@ -318,17 +318,18 @@ body {
 }
 
 .projectItem {
+  display: flex;
+  flex-direction: column;
+  /* important! */
+  width: 300px;
+  padding: 10px;
   background: var(--item_bg_color);
   backdrop-filter: blur(var(--card_filter));
   border-radius: 8px;
-  width: 300px;
-  height: 80px;
   margin: 10px;
-  display: flex;
+  transition: transform 0.3s;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s;
-  padding: 10px;
 }
 
 .projectItem:hover {
@@ -565,4 +566,53 @@ body {
   .mobile-skills .skill-icons li img:hover {
     transform: scale(1);
   }
+}
+
+.projectDescription {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 10px;
+  background: var(--item_bg_color);
+  border-radius: 8px;
+  margin: 0 0 10px 0;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.projectDescription::-webkit-scrollbar {
+  width: 6px;
+}
+
+.projectDescription::-webkit-scrollbar-thumb {
+  background: var(--item_left_text_color, #888);
+  border-radius: 3px;
+}
+
+.projectDescription::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.projectDescription ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.projectDescription li {
+  font-size: 14px;
+  color: var(--item_left_text_color, #2c2c2c);
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+.project-container.active .projectDescription {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.projectItemTop {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
 }
