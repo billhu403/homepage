@@ -182,6 +182,17 @@ body {
   margin: 20px 0;
 }
 
+.index-logo {
+  flex-shrink: 0;
+  width: 40%;
+  margin-top: 30px;
+  position: relative;
+  max-width: 200px;
+  aspect-ratio: 1/1;
+  background-size: cover;
+  border-radius: 50%;
+  border: 0.5px solid #ffffff;
+}
 
 .description {
   font-size: 20px;
@@ -411,53 +422,121 @@ body {
   transform: scale(1.2);
 }
 
+@media (min-width: 800px) {
+
+  .index-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 1150px) {
+  .a {
+    width: calc(50% - 20px);
+  }
+
+  .projectItem {
+    margin: 10px;
+  }
+
+  .b {
+
+    width: calc(50% - 20px);
+
+
+  }
+}
+
 @media (max-width: 800px) {
   .left {
     display: none;
   }
 
+  .a .projectItemRight {
+    display: none;
+
+  }
+
+  .a .projectItemRight img {
+    display: none;
+
+  }
+
+  .a .projectItemLeft {
+    width: 100%;
+  }
+
+  .a {
+
+    width: calc(50% - 18px);
+    margin: 9px;
+
+  }
+
+  .b {
+    height: 110px;
+    margin: 8px 15px;
+    width: calc(100% - 30px);
+  }
+
+
+
   .right {
     width: 100%;
+  }
+
+  .snake-icon {
+    width: 100%;
+  }
+
+  .description {
+    font-size: 4vw;
   }
 
   .welcome {
     font-size: 10vw;
     margin: 2vw 0;
-    text-align: center;
-  }
 
-  .description {
-    font-size: 4vw;
-    text-align: center;
   }
 
   .iconContainer {
+
     margin-top: 4vw;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
 
-  .iconItem {
-    width: 55px;
-    height: 55px;
-    margin: 5px;
-  }
-
-  .logo,
-  .logo-frame {
-    display: none;
   }
 
   .projectItem {
-    width: calc(50% - 20px);
-    margin: 10px;
-  }
-
-  .projectItemLeft h1 {
-    font-size: 18px;
+    padding: 10px;
   }
 
   .projectItemLeft p {
     font-size: 13px;
   }
+
+  .projectItemLeft h1 {
+
+    font-size: 18px;
+  }
+
+  .projectItem:hover h1 {
+
+    font-size: 20px;
+
+  }
+
+  .skill-icons {
+    display: none;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
