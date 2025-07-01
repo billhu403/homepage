@@ -104,14 +104,6 @@ body {
   border-radius: 50%;
 }
 
-.logo-frame {
-  position: absolute;
-  top: -15%;
-  left: -10%;
-  width: 120%;
-  aspect-ratio: 1/1;
-}
-
 .left-div {
   flex-shrink: 0;
   width: 100%;
