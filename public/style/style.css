@@ -414,6 +414,10 @@ body {
   transform: scale(1.2);
 }
 
+.mobile-skills {
+  display: none;
+}
+
 @media (min-width: 800px) {
 
   .index-logo {
@@ -519,16 +523,14 @@ body {
     display: none;
   }
 
-
-
-
-
-
-
-
-
-
-
-
+  .mobile-skills {
+    display: block;
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    background: var(--item_bg_color);
+    backdrop-filter: blur(var(--card_filter));
+    -webkit-backdrop-filter: blur(var(--card_filter));
+  }
 
 }
