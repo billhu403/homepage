@@ -531,6 +531,9 @@ body {
     background: var(--item_bg_color);
     backdrop-filter: blur(var(--card_filter));
     -webkit-backdrop-filter: blur(var(--card_filter));
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .mobile-skills .left-section-title {
@@ -540,15 +543,16 @@ body {
 
   .mobile-skills .skill-icons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     gap: 5px;
     padding: 0;
     margin: 0;
   }
 
   .mobile-skills .skill-icons li {
-    width: 50%;
-    aspect-ratio: 1/1;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    padding: 0;
   }
 
   .mobile-skills .skill-icons li img {
