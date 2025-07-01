@@ -537,14 +537,16 @@ body {
   }
 
   .mobile-skills .left-section-title {
+    text-align: left;
+    display: block;
     font-size: 18px;
     margin-bottom: 10px;
   }
 
   .mobile-skills .skill-icons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
-    gap: 3px;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 2px;
     padding: 0;
     margin: 0;
     justify-items: start;
