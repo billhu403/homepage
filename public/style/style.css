@@ -526,11 +526,11 @@ body {
   .mobile-skills {
     display: block;
     margin-top: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    background: var(--item_bg_color);
-    backdrop-filter: blur(var(--card_filter));
-    -webkit-backdrop-filter: blur(var(--card_filter));
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -543,8 +543,8 @@ body {
 
   .mobile-skills .skill-icons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
+    gap: 3px;
     padding: 0;
     margin: 0;
   }
