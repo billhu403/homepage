@@ -2,7 +2,7 @@
 
 [Tomatoe](https://tomatoe.cc/)
 
-Tech Stack
+💻 Tech Stack
 - HTML
 - CSS
 - Javascript
