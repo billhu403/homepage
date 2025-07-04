@@ -1,5 +1,11 @@
+@font-face {
+    font-family: "title";
+    src: url(../fonts/Jost-VariableFont_wght.ttf);
+    font-display: swap;
+}
+
+
 html {
-  /*图片模糊背景＋白色透明卡片+黑色svg*/
   --name: 主题2;
   --main_bg_color: url(../img/background.jpg);
   --main_text_color: #000000;
@@ -172,6 +178,7 @@ body {
   font-size: 65px;
   font-weight: 800;
   margin: 20px 0;
+  font-family: "title", sans-serif;
 }
 
 .index-logo {
