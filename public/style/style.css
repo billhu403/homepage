@@ -6,7 +6,7 @@
 
 
 html {
-  --name: 主题2;
+  --name: theme2;
   --main_bg_color: url(../img/background.jpg);
   --main_text_color: #000000;
   --gradient: linear-gradient(120deg, #bd34fe, #e0321b 30%, #41d1ff 60%);
@@ -427,6 +427,20 @@ body {
 }
 
 @media (min-width: 800px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    flex: 1;
+  }
+
+  footer {
+    position: static;
+    margin-top: auto;
+  }
 
   .index-logo {
     display: none;
