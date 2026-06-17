@@ -1,0 +1,21 @@
+{
+  "name": "tomato-homepage",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^5.0.7",
+    "astro": "^6.4.7",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
+  },
+  "devDependencies": {}
+}

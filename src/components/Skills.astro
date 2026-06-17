@@ -1,0 +1,16 @@
+---
+import { skills } from "../data/profile";
+
+const { mobile = false } = Astro.props;
+---
+
+<div class={mobile ? "mobile-skills" : "left-div left-skills"}>
+  <h3 class="left-section-title">Skills</h3>
+  <ul class="skill-icons">
+    {skills.map((skill) => (
+      <li>
+        <img src={skill.icon} alt={skill.name} title={skill.name} />
+      </li>
+    ))}
+  </ul>
+</div>

@@ -1,0 +1,9 @@
+---
+import { profile } from "../data/profile";
+
+const { className = "logo" } = Astro.props;
+---
+
+<div class={className} style={`background-image: url('${profile.avatar}');`}>
+  <img class="avatar-banner" src={profile.avatarBanner} alt="" />
+</div>

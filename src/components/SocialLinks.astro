@@ -1,0 +1,19 @@
+---
+import { socials } from "../data/profile";
+import SocialIcon from "./SocialIcon.astro";
+---
+
+<div class="iconContainer">
+  {socials.map((social) => (
+    <a
+      class="iconItem"
+      href={social.href}
+      target={social.href.startsWith("http") ? "_blank" : undefined}
+      rel={social.href.startsWith("http") ? "noreferrer" : undefined}
+      aria-label={social.name}
+    >
+      <SocialIcon icon={social.icon} />
+      <div class="iconTip">{social.name}</div>
+    </a>
+  ))}
+</div>

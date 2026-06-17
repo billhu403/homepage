@@ -1,0 +1,34 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Tomato",
+  description = "Bill Hu's personal portfolio homepage.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon" />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        const savedTheme = localStorage.getItem("theme");
+        const theme =
+          savedTheme === "light" || savedTheme === "dark"
+            ? savedTheme
+            : matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
