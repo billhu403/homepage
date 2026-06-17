@@ -71,6 +71,10 @@ html {
   --chime_metal: #005581;
   --chime_paper: #f6c453;
   --chime_text: #111827;
+  background: var(--main_bg_color);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 html[data-theme="dark"] {
@@ -829,18 +833,47 @@ footer {
   }
 
   .theme-chime {
-    right: 12px;
-    width: 68px;
-    height: 132px;
+    top: 4px;
+    right: 10px;
+    width: 52px;
+    height: 94px;
   }
 
   .theme-chime-cord {
-    height: 24px;
+    height: 16px;
   }
 
   .theme-chime-bell {
-    width: 46px;
-    height: 42px;
+    width: 38px;
+    height: 34px;
+  }
+
+  .theme-chime-rim {
+    left: 7px;
+    right: 7px;
+    bottom: 4px;
+    height: 5px;
+  }
+
+  .theme-chime-clapper {
+    bottom: -8px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .theme-chime-clapper::after {
+    top: 7px;
+    height: 14px;
+  }
+
+  .theme-chime-paper {
+    width: 18px;
+    height: 30px;
+    margin-top: 18px;
+  }
+
+  .theme-chime-label {
+    display: none;
   }
 
   .right {
