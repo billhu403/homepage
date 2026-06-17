@@ -1,0 +1,124 @@
+---
+const petalCount = 28;
+const petalDuration = 32;
+const petals = Array.from({ length: petalCount }, (_, index) => {
+  const direction = index % 9;
+  const drift =
+    direction === 0 || direction === 5
+      ? -(90 + ((index * 41) % 180))
+      : direction === 2 || direction === 7
+        ? 120 + ((index * 59) % 260)
+        : 430 + ((index * 173) % 760);
+
+  return {
+    right: index % 3 === 1 ? 38 + ((index * 11) % 21) : 1 + ((index * 7) % 27),
+    delay: -((index * petalDuration) / petalCount),
+    duration: petalDuration,
+    drift,
+    midpoint: drift < 0 ? 80 + ((index * 23) % 130) : drift * (0.3 + ((index % 4) * 0.08)),
+    size: 6 + ((index * 3) % 7),
+  };
+});
+---
+
+<div class="sakura-fall" aria-hidden="true">
+  {
+    petals.map((petal, index) => (
+      <span
+        class="sakura-petal"
+        style={`--petal-right:${petal.right}vw;--petal-delay:${petal.delay}s;--petal-duration:${petal.duration}s;--petal-drift:${petal.drift}px;--petal-midpoint:${petal.midpoint}px;--petal-mobile-drift:${Math.round(petal.drift * 0.34)}px;--petal-mobile-midpoint:${Math.round(petal.midpoint * 0.34)}px;--petal-size:${petal.size}px;--petal-height:${Math.round(petal.size * 0.72)}px;--petal-turn:${index % 2 === 0 ? 540 : -480}deg`}
+      />
+    ))
+  }
+</div>
+
+<style>
+  .sakura-fall {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .sakura-petal {
+    position: absolute;
+    top: -24px;
+    right: var(--petal-right);
+    width: var(--petal-size);
+    height: var(--petal-height);
+    border-radius: 85% 18% 76% 24%;
+    background:
+      radial-gradient(circle at 72% 28%, rgba(255, 255, 255, 0.92), transparent 22%),
+      linear-gradient(145deg, #ffd8e5 8%, #f5a9c3 72%, #df789f);
+    box-shadow: 0 1px 2px rgba(112, 42, 72, 0.16);
+    opacity: 0;
+    transform-origin: 72% 72%;
+    animation: sakuraDrift var(--petal-duration) linear var(--petal-delay) infinite;
+  }
+
+  .sakura-petal::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+    width: 42%;
+    height: 48%;
+    border-radius: 70% 10% 70% 30%;
+    background: rgba(224, 113, 153, 0.5);
+  }
+
+  @keyframes sakuraDrift {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -4vh, 0) rotate(0deg);
+    }
+
+    8% {
+      opacity: 0.96;
+    }
+
+    20% {
+      opacity: 0.76;
+    }
+
+    52% {
+      opacity: 0.68;
+      transform: translate3d(calc(var(--petal-midpoint) * -1), 50vh, 0) rotate(calc(var(--petal-turn) * 0.52));
+    }
+
+    78% {
+      opacity: 0.74;
+    }
+
+    90% {
+      opacity: 0.92;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate3d(calc(var(--petal-drift) * -1), 108vh, 0) rotate(var(--petal-turn));
+    }
+  }
+
+  @media (max-width: 800px) {
+    .sakura-petal {
+      --petal-drift: var(--petal-mobile-drift);
+      --petal-midpoint: var(--petal-mobile-midpoint);
+    }
+
+    .sakura-petal:nth-child(even) {
+      display: none;
+    }
+
+    .sakura-petal {
+      filter: blur(0.35px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sakura-fall {
+      display: none;
+    }
+  }
+</style>

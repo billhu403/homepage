@@ -34,13 +34,15 @@ export default function ThemeChime() {
       title={`Switch to ${nextTheme} mode`}
     >
       <span className="theme-chime-cord" />
+      <span className="theme-chime-bead" aria-hidden="true" />
       <span className="theme-chime-bell" aria-hidden="true">
         <span className="theme-chime-rim" />
         <span className="theme-chime-clapper" />
         <span className="theme-chime-shine" />
       </span>
-      <span className="theme-chime-paper" aria-hidden="true" />
-      <span className="theme-chime-label">{theme === "light" ? "Light" : "Dark"}</span>
+      <span className="theme-chime-paper" aria-hidden="true">
+        <span className="theme-chime-label" />
+      </span>
     </button>
   );
 }

@@ -5,6 +5,7 @@ import LocationIcon from "../components/LocationIcon.astro";
 import RegionTime from "../components/RegionTime";
 import Skills from "../components/Skills.astro";
 import SocialLinks from "../components/SocialLinks.astro";
+import SakuraFall from "../components/SakuraFall.astro";
 import ThemeChime from "../components/ThemeChime";
 import ProjectShowcase from "../components/ProjectShowcase";
 import { profile, projects } from "../data/profile";
@@ -12,6 +13,7 @@ import { profile, projects } from "../data/profile";
 
 <BaseLayout>
   <div class="filter"></div>
+  <SakuraFall />
   <ThemeChime client:load />
 
   <div class="main">

@@ -67,10 +67,13 @@ html {
   --panel_border_color: rgba(255, 255, 255, 0.38);
   --divider_color: rgba(0, 85, 129, 0.32);
   --welcome_gradient: linear-gradient(105deg, #111827 0%, #005581 48%, #111827 88%);
-  --chime_bg: rgba(249, 250, 251, 0.86);
-  --chime_metal: #005581;
-  --chime_paper: #f6c453;
-  --chime_text: #111827;
+  --chime_bg: #f8faf8;
+  --chime_metal: #8a6b35;
+  --chime_cord: #8a6b35;
+  --chime_paper: #c7924f;
+  --chime_text: #2f2418;
+  --chime_glass_edge: rgba(222, 246, 252, 0.92);
+  --chime_glass_rim: rgba(105, 143, 153, 0.72);
   min-height: 100%;
   background: var(--main_bg_color);
   background-repeat: no-repeat;
@@ -94,10 +97,13 @@ html[data-theme="dark"] {
   --panel_border_color: rgba(155, 215, 255, 0.18);
   --divider_color: rgba(155, 215, 255, 0.3);
   --welcome_gradient: linear-gradient(105deg, #f7fbff 0%, #9bd7ff 48%, #f6c453 88%);
-  --chime_bg: rgba(12, 20, 31, 0.88);
-  --chime_metal: #f6c453;
-  --chime_paper: #9bd7ff;
-  --chime_text: #f7fbff;
+  --chime_bg: #e9eef2;
+  --chime_metal: #d4ad63;
+  --chime_cord: #d4ad63;
+  --chime_paper: #a96f3f;
+  --chime_text: #fff8e8;
+  --chime_glass_edge: rgba(220, 244, 252, 0.78);
+  --chime_glass_rim: rgba(129, 174, 187, 0.66);
 }
 
 body {
@@ -139,8 +145,8 @@ body {
   position: fixed;
   top: 0;
   right: 24px;
-  width: 82px;
-  height: 154px;
+  width: 86px;
+  height: 190px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -155,103 +161,142 @@ body {
 }
 
 .theme-chime-cord {
-  width: 2px;
-  height: 28px;
-  background: var(--chime_metal);
-  opacity: 0.86;
+  width: 1px;
+  height: 24px;
+  background: var(--chime_cord);
+  box-shadow: 0 0 1px color-mix(in srgb, var(--chime_cord) 65%, transparent);
+}
+
+.theme-chime-bead {
+  width: 11px;
+  height: 11px;
+  margin-bottom: -1px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff 18%, #d8ddd9 88%);
+  box-shadow:
+    inset -2px -2px 3px rgba(116, 126, 121, 0.18),
+    0 2px 4px rgba(17, 24, 39, 0.14);
 }
 
 .theme-chime-bell {
   position: relative;
-  width: 54px;
-  height: 48px;
-  border-radius: 50% 50% 44% 44%;
+  width: 62px;
+  height: 58px;
+  border-radius: 48% 48% 34% 34% / 58% 58% 14% 14%;
   background:
-    radial-gradient(circle at 31% 24%, rgba(255, 255, 255, 0.98), transparent 16%),
-    radial-gradient(circle at 68% 38%, rgba(255, 255, 255, 0.36), transparent 23%),
-    linear-gradient(145deg, rgba(158, 222, 255, 0.74), rgba(255, 255, 255, 0.52) 45%, var(--chime_bg));
-  border: 2px solid rgba(255, 255, 255, 0.72);
+    radial-gradient(ellipse at 29% 24%, rgba(255, 255, 255, 0.92), transparent 20%),
+    radial-gradient(ellipse at 50% 92%, rgba(112, 166, 181, 0.24), transparent 43%),
+    linear-gradient(115deg, rgba(199, 232, 240, 0.48), rgba(255, 255, 255, 0.72) 48%, rgba(170, 211, 222, 0.38));
+  border: 1px solid var(--chime_glass_edge);
+  backdrop-filter: blur(2px);
   box-shadow:
-    inset 0 -8px 14px rgba(0, 85, 129, 0.12),
-    inset 0 2px 8px rgba(255, 255, 255, 0.62),
-    0 10px 22px rgba(17, 24, 39, 0.16);
-  overflow: hidden;
+    inset 0 -12px 16px rgba(75, 137, 153, 0.18),
+    inset 5px 0 10px rgba(255, 255, 255, 0.24),
+    inset -5px 0 10px rgba(88, 145, 160, 0.1),
+    inset 0 4px 9px rgba(255, 255, 255, 0.7),
+    0 7px 14px rgba(30, 68, 78, 0.12);
 }
 
 .theme-chime-rim {
   position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: 5px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--chime_metal);
-  opacity: 0.82;
+  left: 13px;
+  right: 13px;
+  bottom: -1px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--chime_glass_rim);
+  border: 1px solid rgba(224, 247, 252, 0.48);
+  box-shadow:
+    inset 0 2px 3px rgba(39, 91, 104, 0.28),
+    0 1px 2px rgba(255, 255, 255, 0.28);
+  opacity: 0.86;
+  z-index: 2;
 }
 
 .theme-chime-clapper {
   position: absolute;
   left: 50%;
-  bottom: -10px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--chime_metal);
+  top: 7px;
+  bottom: -34px;
+  width: 1px;
+  background: var(--chime_cord);
   transform: translateX(-50%);
+  z-index: 2;
 }
 
 .theme-chime-clapper::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 9px;
-  width: 2px;
-  height: 18px;
-  background: var(--chime_metal);
-  transform: translateX(-50%);
+  content: none;
 }
 
 .theme-chime-shine {
   position: absolute;
-  top: 10px;
-  left: 13px;
-  width: 14px;
-  height: 6px;
+  top: 13px;
+  left: 15px;
+  width: 16px;
+  height: 5px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.82);
   transform: rotate(-32deg);
 }
 
 .theme-chime-paper {
-  width: 24px;
-  height: 42px;
-  margin-top: 23px;
-  border-radius: 4px 4px 10px 10px;
+  position: relative;
+  width: 29px;
+  height: 82px;
+  margin-top: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 0 4px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 3px 3px 5px 5px;
   background:
-    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.42), transparent 14%),
-    linear-gradient(90deg, transparent 48%, rgba(255, 255, 255, 0.32) 50%, transparent 52%),
-    linear-gradient(180deg, var(--chime_paper), rgba(255, 255, 255, 0.78));
-  box-shadow: 0 8px 16px rgba(17, 24, 39, 0.12);
+    linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent 22% 78%, rgba(69, 40, 18, 0.1)),
+    var(--chime_paper);
+  border: 1px solid rgba(78, 48, 24, 0.18);
+  box-shadow: 0 8px 13px rgba(17, 24, 39, 0.15);
   transform-origin: top center;
   animation: paperFlutter 2.6s ease-in-out infinite;
 }
 
-.theme-chime-label {
-  margin-top: 6px;
-  min-width: 54px;
-  padding: 4px 7px;
-  border-radius: 999px;
-  background: var(--chime_bg);
-  border: 1px solid var(--panel_border_color);
-  font-size: 11px;
-  font-weight: 800;
-  line-height: 1;
+.theme-chime-paper::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(63, 39, 20, 0.58);
+  transform: translateX(-50%);
 }
 
-.theme-chime:hover .theme-chime-bell,
+.theme-chime-label {
+  color: #fff8e8;
+  font-family: "title", "b", sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  text-orientation: upright;
+  writing-mode: vertical-rl;
+}
+
+.theme-chime-label::before {
+  content: "LIGHT";
+}
+
+html[data-theme="dark"] .theme-chime-label::before {
+  content: "DARK";
+}
+
+html[data-theme="dark"] .theme-chime-label {
+  color: #2f2418;
+}
+
 .theme-chime:hover .theme-chime-paper {
-  transform: rotate(4deg);
-  transform-origin: top center;
+  animation-duration: 1.2s;
 }
 
 @keyframes chimeSway {
@@ -838,47 +883,47 @@ footer {
   }
 
   .theme-chime {
-    top: 4px;
+    top: 0;
     right: 10px;
-    width: 52px;
-    height: 94px;
+    width: 58px;
+    height: 151px;
   }
 
   .theme-chime-cord {
-    height: 16px;
+    height: 13px;
   }
 
-  .theme-chime-bell {
-    width: 38px;
-    height: 34px;
-  }
-
-  .theme-chime-rim {
-    left: 7px;
-    right: 7px;
-    bottom: 4px;
-    height: 5px;
-  }
-
-  .theme-chime-clapper {
-    bottom: -8px;
+  .theme-chime-bead {
     width: 8px;
     height: 8px;
   }
 
-  .theme-chime-clapper::after {
-    top: 7px;
-    height: 14px;
+  .theme-chime-bell {
+    width: 42px;
+    height: 39px;
+  }
+
+  .theme-chime-rim {
+    left: 9px;
+    right: 9px;
+    bottom: -1px;
+    height: 5px;
+  }
+
+  .theme-chime-clapper {
+    top: 5px;
+    bottom: -26px;
   }
 
   .theme-chime-paper {
-    width: 18px;
-    height: 30px;
-    margin-top: 18px;
+    width: 22px;
+    height: 67px;
+    margin-top: 23px;
+    padding: 12px 0 3px;
   }
 
   .theme-chime-label {
-    display: none;
+    font-size: 7px;
   }
 
   .right {
