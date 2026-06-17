@@ -40,7 +40,6 @@ export default function ThemeChime() {
         <span className="theme-chime-shine" />
       </span>
       <span className="theme-chime-paper" aria-hidden="true" />
-      <span className="theme-chime-sparkle" aria-hidden="true" />
       <span className="theme-chime-label">{theme === "light" ? "Light" : "Dark"}</span>
     </button>
   );

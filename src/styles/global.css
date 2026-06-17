@@ -232,35 +232,6 @@ body {
   animation: paperFlutter 2.6s ease-in-out infinite;
 }
 
-.theme-chime-sparkle {
-  position: absolute;
-  top: 42px;
-  right: 5px;
-  width: 10px;
-  height: 10px;
-  transform: rotate(45deg);
-}
-
-.theme-chime-sparkle::before,
-.theme-chime-sparkle::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  background: rgba(255, 255, 255, 0.84);
-  border-radius: 999px;
-}
-
-.theme-chime-sparkle::before {
-  width: 10px;
-  height: 2px;
-}
-
-.theme-chime-sparkle::after {
-  width: 2px;
-  height: 10px;
-}
-
 .theme-chime-label {
   margin-top: 6px;
   min-width: 54px;
