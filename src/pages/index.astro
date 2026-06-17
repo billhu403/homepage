@@ -47,6 +47,20 @@ import { profile, projects } from "../data/profile";
           <span>{profile.title} at</span>
           <img class="affiliation-logo" src={profile.affiliationLogo} alt={profile.affiliationName} />
         </div>
+        <div class="mobile-profile-card">
+          <div class="mobile-profile-main">
+            <RegionTime client:load />
+            <div class="mobile-location">
+              <LocationIcon />
+              <span class="location-stack">
+                {profile.locations.map((location) => <span>{location}</span>)}
+              </span>
+            </div>
+          </div>
+          <div class="mobile-tags">
+            {profile.tags.map((tag) => <span>{tag}</span>)}
+          </div>
+        </div>
         <SocialLinks />
         <img src="/svg/snake-Light.svg" alt="Snake Icon" class="snake-icon" />
       </header>
