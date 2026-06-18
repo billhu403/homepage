@@ -755,6 +755,10 @@ html[data-theme="dark"] .theme-chime-label {
   display: none;
 }
 
+.mobile-identity {
+  display: none;
+}
+
 .projectItemTop {
   display: flex;
   justify-content: space-between;
@@ -928,10 +932,77 @@ footer {
 
   .right {
     width: 100%;
+    padding: 18px 16px 36px;
+    gap: 0;
+  }
+
+  .desktop-header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .mobile-identity {
+    display: grid;
+    order: 1;
+    grid-template-columns: 94px minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    min-height: 132px;
+    padding: 16px 56px 14px 4px;
+  }
+
+  .index-logo {
+    display: block;
+    width: 94px;
+    max-width: none;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.64);
+    box-shadow: 0 14px 28px rgba(17, 43, 66, 0.18);
+  }
+
+  .mobile-identity-copy {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mobile-eyebrow {
+    color: var(--item_left_text_color);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .mobile-name {
+    display: block;
+    max-width: 100%;
+    font-family: "title", sans-serif;
+    font-size: 38px;
+    font-weight: 850;
+    line-height: 1;
+  }
+
+  .mobile-title {
+    margin-top: 7px;
+    color: var(--main_text_color);
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .desktop-welcome,
+  .desktop-affiliation {
+    display: none;
   }
 
   .snake-icon {
+    order: 4;
     width: 100%;
+    height: 78px;
+    margin: 14px 0 4px;
+    object-fit: contain;
+    object-position: left center;
   }
 
   .description {
@@ -939,47 +1010,76 @@ footer {
   }
 
   .mobile-profile-card {
-    display: block;
-    width: min(100%, 350px);
-    margin-top: 16px;
-    padding: 12px;
-    border-radius: 10px;
-    background: var(--item_bg_color);
+    display: flex;
+    order: 3;
+    width: 100%;
+    margin-top: 4px;
+    padding: 0;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--panel_bg_color) 88%, transparent);
+    border: 1px solid var(--panel_border_color);
+  }
+
+  .mobile-affiliation {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 7px 12px;
+    background: rgba(0, 85, 129, 0.84);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .mobile-affiliation img {
+    width: min(210px, 62vw);
+    height: 30px;
+    object-fit: contain;
+    object-position: right center;
   }
 
   .mobile-profile-main {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0;
     align-items: stretch;
-    padding-bottom: 11px;
-    border-bottom: 2px solid var(--divider_color);
+    border-bottom: 1px solid var(--divider_color);
   }
 
   .mobile-profile-card .region-time {
-    padding: 0;
+    display: flex;
+    min-height: 86px;
+    padding: 13px 12px;
+    justify-content: center;
+    flex-direction: column;
     border-bottom: 0;
   }
 
   .mobile-profile-card .region-time-value {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .mobile-profile-card .region-time-label {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .mobile-profile-card .region-time-date {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .mobile-location {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding-left: 11px;
-    border-left: 2px solid var(--divider_color);
-    font-size: 14px;
+    min-height: 86px;
+    padding: 13px 12px;
+    border-left: 1px solid var(--divider_color);
+    font-size: 13px;
   }
 
   .mobile-location svg {
@@ -994,7 +1094,7 @@ footer {
     flex-wrap: nowrap;
     gap: 6px;
     overflow-x: auto;
-    padding-top: 12px;
+    padding: 10px 12px;
     scrollbar-width: none;
   }
 
@@ -1006,47 +1106,127 @@ footer {
     display: inline-flex;
     align-items: center;
     flex: 0 0 auto;
-    min-height: 27px;
-    padding: 5px 8px;
-    border-radius: 10px;
-    background: var(--left_tag_item);
+    min-height: 25px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--left_tag_item) 82%, transparent);
     border: 1px solid var(--divider_color);
-    font-size: 13px;
-  }
-
-  .role-affiliation {
-    min-height: 32px;
-    font-size: 15px;
-  }
-
-  .affiliation-logo {
-    width: min(230px, 68vw);
-  }
-
-  .welcome {
-    font-size: 10vw;
-    margin: 2vw 0;
+    font-size: 12px;
   }
 
   .iconContainer {
-    margin-top: 4vw;
+    order: 2;
+    height: 48px;
+    margin: 4px 0 12px;
+    gap: 8px;
+    overflow: visible;
+  }
+
+  .iconItem {
+    width: 46px;
+    height: 42px;
+    margin-left: 0;
+    border: 1px solid var(--panel_border_color);
+  }
+
+  .iconItem:hover {
+    width: 46px;
+    transform: translateY(-2px);
+  }
+
+  .iconItem:hover .iconTip {
+    display: none;
+  }
+
+  .right > section {
+    order: 2;
+    margin-top: 5px;
+  }
+
+  .right > .mobile-skills {
+    order: 3;
+  }
+
+  .right > header {
+    order: 1;
+  }
+
+  .title {
+    margin: 15px 0 10px;
+    font-size: 22px;
+  }
+
+  .title svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .projectList {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    width: 100%;
   }
 
   .projectItem {
-    padding: 10px;
-    width: min(100%, 330px);
+    position: relative;
+    width: 100%;
+    min-height: 92px;
+    margin: 0;
+    padding: 13px 52px 13px 14px;
+    border: 1px solid var(--panel_border_color);
+    background: color-mix(in srgb, var(--panel_bg_color) 90%, transparent);
+    text-align: left;
+  }
+
+  .projectItem::after {
+    content: "›";
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    color: var(--item_left_text_color);
+    font-size: 28px;
+    line-height: 1;
+    transform: translateY(-50%);
+  }
+
+  .projectItemTop {
+    height: auto;
+    min-height: 64px;
+    margin: 0;
+    align-items: center;
+  }
+
+  .projectItemLeft {
+    width: calc(100% - 62px);
+  }
+
+  .projectItemRight {
+    order: -1;
+    width: 50px;
+    height: 50px;
+    margin-right: 12px;
+    flex: 0 0 50px;
+  }
+
+  .projectItemRight img {
+    max-width: 46px;
+    max-height: 46px;
+    object-fit: contain;
   }
 
   .projectItemLeft p {
-    font-size: 13px;
+    margin-top: 3px;
+    font-size: 12px;
   }
 
   .projectItemLeft h1 {
-    font-size: 18px;
+    font-size: 19px;
+    font-weight: 750;
   }
 
   .projectItem:hover h1 {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .left .skill-icons {
@@ -1054,45 +1234,59 @@ footer {
   }
 
   .mobile-skills {
-    display: block;
-    margin: 40px 0 0 0;
-    padding: 14px 0 18px;
-    border-radius: 8px;
-    background: var(--item_bg_color);
-    backdrop-filter: blur(var(--card_filter));
-    -webkit-backdrop-filter: blur(var(--card_filter));
-    max-width: 90%;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    margin: 9px 0 0;
+    padding: 7px 10px;
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--panel_bg_color) 88%, transparent);
+    border: 1px solid var(--panel_border_color);
   }
 
   .mobile-skills .left-section-title {
-    text-align: left;
-    display: block;
-    font-size: 20px;
-    margin: 0 0 15px 0;
+    font-size: 11px;
+    margin: 0 10px 0 0;
+    text-transform: uppercase;
   }
 
   .mobile-skills .skill-icons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 45px);
-    gap: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 7px;
     padding: 0;
     margin: 0;
-    justify-items: start;
   }
 
   .mobile-skills .skill-icons li {
-    aspect-ratio: 1 / 1;
+    width: 27px;
+    height: 27px;
     margin: 0;
     padding: 0;
   }
 
   .mobile-skills .skill-icons li img {
-    width: 90%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
   }
 
   .mobile-skills .skill-icons li img:hover {
     transform: scale(1);
+  }
+
+  .projectOverlay {
+    align-items: flex-end;
+    padding: 12px;
+  }
+
+  .projectModal {
+    width: 100%;
+    max-height: 82vh;
+    padding: 20px 18px 24px;
+    border-radius: 10px 10px 6px 6px;
   }
 }

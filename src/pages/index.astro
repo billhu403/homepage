@@ -40,16 +40,29 @@ import { profile, projects } from "../data/profile";
     </aside>
 
     <main class="right">
-      <header>
-        <Avatar className="index-logo" />
-        <div class="welcome">
+      <header class="desktop-header">
+        <div class="mobile-identity">
+          <Avatar className="index-logo" />
+          <div class="mobile-identity-copy">
+            <span class="mobile-eyebrow">Hello, I'm</span>
+            <span class="mobile-name gradientText">{profile.name}</span>
+            <span class="mobile-title">{profile.title}</span>
+          </div>
+        </div>
+
+        <div class="welcome desktop-welcome">
           Hello, I'm <span class="gradientText">{profile.name}</span>
         </div>
-        <div class="description role-affiliation">
+        <div class="description role-affiliation desktop-affiliation">
           <span>{profile.title} at</span>
           <img class="affiliation-logo" src={profile.affiliationLogo} alt={profile.affiliationName} />
         </div>
+
         <div class="mobile-profile-card">
+          <div class="mobile-affiliation">
+            <span>UCSC graduate</span>
+            <img src={profile.affiliationLogo} alt={profile.affiliationName} />
+          </div>
           <div class="mobile-profile-main">
             <RegionTime client:load />
             <div class="mobile-location">
@@ -63,6 +76,7 @@ import { profile, projects } from "../data/profile";
             {profile.tags.map((tag) => <span>{tag}</span>)}
           </div>
         </div>
+
         <SocialLinks />
         <img src="/svg/snake-Light.svg" alt="Snake Icon" class="snake-icon" />
       </header>
