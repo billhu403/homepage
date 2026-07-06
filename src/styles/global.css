@@ -856,6 +856,33 @@ html[data-theme="dark"] .theme-chime-label {
   margin-bottom: 9px;
 }
 
+.projectModalLink {
+  width: fit-content;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  padding: 9px 14px;
+  border-radius: 7px;
+  background: #005581;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.projectModalLink:hover {
+  background: #006b9f;
+  transform: translateY(-1px);
+}
+
+.projectModalLink:focus-visible {
+  outline: 2px solid var(--main_text_color);
+  outline-offset: 3px;
+}
+
 footer {
   padding: 10px;
   text-align: center;

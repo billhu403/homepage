@@ -40,6 +40,7 @@ export const projects = [
     name: "Argus",
     role: "Full-Stack Developer",
     image: "/img/argus.ico",
+    url: "https://argus.masondrake.dev",
     bullets: [
       "Built a full-stack event monitoring pipeline with a Go API, worker process, RabbitMQ queue, and Postgres persistence.",
       "Implemented standardized event schemas, environment-based configuration, and a CLI for publishing test events through the pipeline.",

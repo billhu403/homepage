@@ -4,6 +4,7 @@ type Project = {
   name: string;
   role: string;
   image: string;
+  url?: string;
   bullets: string[];
 };
 
@@ -82,6 +83,16 @@ export default function ProjectShowcase({ projects }: { projects: Project[] }) {
                 <li key={bullet}>{bullet}</li>
               ))}
             </ul>
+            {selectedProject.url && (
+              <a
+                className="projectModalLink"
+                href={selectedProject.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit {selectedProject.name}
+              </a>
+            )}
           </section>
         </div>
       )}
